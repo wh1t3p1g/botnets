@@ -6,6 +6,6 @@ COPY source /root/source
 
 WORKDIR /root
 
-RUN chmod a+x wait-for-it.sh
+RUN chmod a+x source/wait-for-it.sh
 
 CMD ["/bin/sh", "-c", "/root/wait-for-it.sh"]
