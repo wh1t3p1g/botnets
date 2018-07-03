@@ -16,8 +16,8 @@ done
 >&2 echo "Mysql is up - executing command"
 
 gcc -std=c99 source/bot/*.c -DDEBUG "-DMIRAI_TELNET" \
-                        -static -g -o source/debug/mirai.dbg \
-    && go build -o source/debug/cnc source/cnc/*.go \
-    && mv source/debug/* /root && mv source/prompt.txt /root && rm -rf source
+                        -static -g -o /root/mirai.dbg \
+    && go build -o /root/cnc source/cnc/*.go \
+    && mv source/prompt.txt /root && rm -rf source
 
 cp mirai.dbg share/ && ./cnc
