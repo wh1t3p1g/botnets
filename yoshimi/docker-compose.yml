@@ -1,0 +1,20 @@
+version: "3"
+services:
+  web:
+    image: "0kami/botnets:yoshimi"
+    ports:
+      - "8888:8888"
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_PASSWORD: your_password
+    privileged: true
+    links:
+      - mysql
+    depends_on:
+      - mysql
+  mysql:
+    image: "mysql:5.6"
+    environment:
+      MYSQL_ROOT_PASSWORD: "your_password" # 修改数据库密码
+      TZ: 'Asia/Shanghai'
+    command: ['mysqld', '--character-set-server=utf8']
