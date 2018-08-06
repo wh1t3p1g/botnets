@@ -3,7 +3,7 @@ services:
   web:
     image: "0kami/botnets:yoshimi"
     ports:
-      - "8888:8888"
+      - "8888:8888" 
     environment:
       MYSQL_HOST: mysql
       MYSQL_PASSWORD: your_password
